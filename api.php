@@ -134,17 +134,17 @@ function getUSDTEBalance() {
 
 $response = [
     'btczBalance' => getBtczBalance(),
-    'ethBalance' => getEthBalance(),
+    //'ethBalance' => getEthBalance(),
     'btcBalance' => getBtcBalance(),
-    'zecBalance' => getZecBalance(),
+    //'zecBalance' => getZecBalance(),
     'ltcBalance' => getLtcBalance(),
-    'USDTEBalance' => getUSDTEBalance(),
+    //'USDTEBalance' => getUSDTEBalance(),
     'btczUsd' => getCoinPrice('bitcoinz'),
     'ethUsd' => getCoinPrice('ethereum'),
     'btcUsd' => getCoinPrice('bitcoin'),
     'zecUsd' => getCoinPrice('zcash'),
     'ltcUsd' => getCoinPrice('litecoin'),
-    'USDTEUsd' => getCoinPrice('tether')
+    //'USDTEUsd' => getCoinPrice('tether')
 ];
 
 debugLog("Response: " . json_encode($response));
