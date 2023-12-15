@@ -70,33 +70,27 @@ function getBtczBalance()
     return $total;
 }
 
-function getEthBalance() {
-    const API_KEY = 'NIEKSBV3HT23UCI2ATHA5M57VVS5UWY9TF';
-
+function getEthBalance()
+{
+    return 0;
     if ($cache = getCache('eth-balance')) {
         return $cache;
     }
 
-    $url = 'https://api.etherscan.io/api?module=account&action=balance&address='. ETH_ADDRESS .'&tag=latest&apikey=' . API_KEY;
-    $data = file_get_contents($url);
-
+    $data = file_get_contents('https://etherchain.org/api/account/' . ETH_ADDRESS);
     if ($data === false) {
         return null;
     }
 
-    $data = json_decode($data, true);
-    if ($data['status'] !== "1") {
+    $data = json_decode($data);
+    if ($data->status !== 1) {
         return null;
     }
 
-    $balanceInWei = $data['result'];
-    $balanceInEth = bcdiv($balanceInWei, '1000000000000000000', 18); 
+    setCache('eth-balance', $data->data[0]->balance / 1000000000000000000);
 
-    setCache('eth-balance', $balanceInEth);
-
-    return $balanceInEth;
+    return $data->data[0]->balance / 1000000000000000000;
 }
-
 
 function getBtcBalance()
 {
