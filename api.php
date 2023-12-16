@@ -22,7 +22,6 @@ function debugLog($message) {
     error_log(print_r($message, true));
 }
 
-// Cache causing problems on my setup.
 // function getCache($key) {
 //     debugLog("getCache called for key: " . $key);
 //     $cache_file = sprintf(CACHE_TEMPLATE, $key);
@@ -158,7 +157,6 @@ function getBtcBalance() {
     return $balanceInBtc;
 }
 
-//Can't find ZEC api 
 // function getZcashBalance() {
 //     debugLog("getZcashBalance called");
 
