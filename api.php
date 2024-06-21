@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
-// Load environment variables
+// Load environment variables from .env file in /var/www
 $dotenv = Dotenv::createImmutable('/var/www');
 $dotenv->load();
 
