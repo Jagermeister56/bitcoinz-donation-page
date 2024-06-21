@@ -7,7 +7,7 @@ const BTCZ_ADDRESSES = [
 ];
 
 const API_KEY = 'ETH API KEY';
-const CMC_API = 'CMC API KEY';
+const CMC_API = 'CMC API KEY';
 const BNB_API_KEY = 'BNB API KEY';
 
 const ETH_ADDRESS = '0x4E3154bc8691BC480D0F317E866C064cC2c9455D';
@@ -18,7 +18,6 @@ const USDTE_ADDRESS = '0xD36591b20f738f6929272a4391B8C133CB2e5C96';
 
 const CACHE_PATH = __DIR__ . '/cache/';
 const CACHE_DURATION = 3600; // 1 hour in seconds
-
 
 function getCache($key) {
     $cacheFile = CACHE_PATH . $key . '.cache';
@@ -37,29 +36,9 @@ function setCache($key, $data) {
     }
 }
 
-
-// const CACHE_TEMPLATE = __DIR__ . '/cache/%s.cache';
-
 function debugLog($message) {
     error_log(print_r($message, true));
 }
-
-// function getCache($key) {
-//     debugLog("getCache called for key: " . $key);
-//     $cache_file = sprintf(CACHE_TEMPLATE, $key);
-//     if (file_exists($cache_file) && (filemtime($cache_file) > (time() - 60))) {
-//         debugLog("Cache hit for key: " . $key);
-//         return file_get_contents($cache_file);
-//     }
-//     debugLog("Cache miss for key: " . $key);
-//     return false;
-// }
-
-// function setCache($key, $value) {
-//     debugLog("setCache called for key: " . $key . " with value: " . $value);
-//     file_put_contents(sprintf(CACHE_TEMPLATE, $key), $value, LOCK_EX);
-// }
-
 
 function getCoinPrice($coin) {
     $cacheKey = 'price_' . $coin;
@@ -120,7 +99,6 @@ function getCoinPrice($coin) {
     }
 }
 
-
 function getBtczBalance() {
     debugLog("getBtczBalance called");
     $total = 0;
@@ -148,7 +126,6 @@ function getBtczBalance() {
 
     return $totalInBtcz;
 }
-
 
 function getEthBalance() {
     debugLog("getEthBalance called");
@@ -205,8 +182,6 @@ function getBnbBalance() {
     // setCache('bnb-balance', $balanceInEth);
     return $balanceInBnb;
 }
-
-
 
 function getLtcBalance() {
     debugLog("getLtcBalance called");
