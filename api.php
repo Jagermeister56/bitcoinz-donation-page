@@ -4,7 +4,8 @@ require 'vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
-$dotenv = Dotenv::createImmutable(__DIR__);
+// Load environment variables
+$dotenv = Dotenv::createImmutable('/var/www');
 $dotenv->load();
 
 const BTCZ_ADDRESSES = [
