@@ -67,7 +67,7 @@ function getCoinPrice($coin) {
 
     $headers = [
         "Accepts: application/json",
-        "X-CMC_PRO_API_KEY: " . $_ENV['CMC_API_KEY']
+        "X-CMC_PRO_API_KEY: " . getenv('CMC_API_KEY')
     ];
 
     $context = stream_context_create([
@@ -133,7 +133,7 @@ function getBtczBalance() {
 
 function getEthBalance() {
     debugLog("getEthBalance called");
-    $url = 'https://api.etherscan.io/api?module=account&action=balance&address='. ETH_ADDRESS .'&tag=latest&apikey=' . $_ENV['ETH_API_KEY'];
+    $url = 'https://api.etherscan.io/api?module=account&action=balance&address='. ETH_ADDRESS .'&tag=latest&apikey=' . getenv('ETH_API_KEY');
     $data = file_get_contents($url);
     if ($data === false) {
         debugLog("Failed to fetch ETH balance");
@@ -169,7 +169,7 @@ function getBtcBalance() {
 
 function getBnbBalance() {
     debugLog("getBnbBalance called");
-    $url = 'https://api.bscscan.com/api?module=account&action=balance&address='. BNB_ADDRESS .'&tag=latest&apikey=' . $_ENV['BNB_API_KEY'];
+    $url = 'https://api.bscscan.com/api?module=account&action=balance&address='. BNB_ADDRESS .'&tag=latest&apikey=' . getenv('BNB_API_KEY');
     $data = file_get_contents($url);
     if ($data === false) {
         debugLog("Failed to fetch BNB balance");
@@ -201,7 +201,7 @@ function getLtcBalance() {
 
 function getUSDTEBalance() {
     debugLog("getUSDTEBalance called");
-    $url = 'https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress=0xdac17f958d2ee523a2206206994597c13d831ec7&address=' . USDTE_ADDRESS . '&tag=latest&apikey=' . $_ENV['ETH_API_KEY'];
+    $url = 'https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress=0xdac17f958d2ee523a2206206994597c13d831ec7&address=' . USDTE_ADDRESS . '&tag=latest&apikey=' . getenv('ETH_API_KEY');
     $data = file_get_contents($url);
     if ($data === false) {
         debugLog("Failed to fetch USDTE balance");
